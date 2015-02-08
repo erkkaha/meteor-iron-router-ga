@@ -5,6 +5,8 @@ Package.describe({
     git: "https://github.com/reywood/meteor-iron-router-ga.git"
 });
 
+Npm.depends({"universal-analytics": "0.3.6"});
+
 Package.onUse(function(api) {
     api.versionsFrom("METEOR@1.0.1");
     api.use([ "templating", "iron:router@1.0.0" ], "client");
@@ -14,4 +16,7 @@ Package.onUse(function(api) {
         "lib/ga.js",
         "lib/router.js"
     ], "client");
+    
+    api.addFiles("lib/server.js", "server");
+    api.export('ga', ['server']);
 });
