@@ -118,6 +118,17 @@ Router.route("routeName", {
 });
 ```
 
+If you want to override pageview path for a certain route:
+
+```javascript
+Router.route("routeName/:id", {
+    // ...
+    trackPageView: true,
+    pageViewPath: 'routeName'
+    // ...
+});
+```
+
 ### A/B Testing with Content Experiments
 
 Each route in your app can be configured with an experiment ID and a list of templates to show for each variation. First, you must set up the experiment in your Google Analytics dashboard. Once that's done, add a `contentExperiment` configuration option to the route you want to experiment on (see snippet below for details). The number of templates specified in the `variationTemplates` array property *must* match the number of variations (including the original) configured for the experiment.
